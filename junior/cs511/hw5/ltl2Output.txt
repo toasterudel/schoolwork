@@ -1,0 +1,30 @@
+﻿From jspin verify:
+
+warning: never claim + accept labels requires -a flag to fully verify
+pan:1: assertion violated  !( !((333==1))) (at depth 0)
+pan: wrote ltl2.pml.trail
+(Spin Version 6.4.6 -- 2 December 2018)
+Warning: Search not completed
+	+ Partial Order Reduction
+Full statespace search for:
+	never claim         	+ (b)
+	assertion violations	+ (if within scope of claim)
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	- (disabled by never claim)
+State-vector 156 byte, depth reached 0, ••• errors: 1 •••
+        1 states, stored
+        0 states, matched
+        1 transitions (= stored+matched)
+        0 atomic steps
+hash conflicts:         0 (resolved)
+Stats on memory usage (in Megabytes):
+    0.000	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.283	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.107	memory used for DFS stack (-m2000)
+  128.302	total actual memory usage
+pan: elapsed time 0 seconds
+
+From command line with -a:
+
+ltl 2: (333==1)

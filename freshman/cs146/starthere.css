@@ -1,0 +1,106 @@
+
+
+* {
+	margin: 0px;
+	border: 1px;
+	padding: 10px;
+}
+
+
+body
+{
+	
+background-color: gray;
+
+}
+
+
+#top>h1
+{
+
+	font: 2em 'DaysRegular', Arial, sans-serif;
+
+	margin: 15px 25px;
+
+	color: white;
+
+}
+
+section{
+
+	background-color: white;
+
+	width: 90%;
+
+	margin: 0 auto;
+
+	border-radius: 10px;
+
+	box-shadow: 5px 5px 5px black;
+	padding: 10px 10px 30px;
+
+	
+}
+
+@media screen and (min-width : 830px)
+
+{
+	
+	#main{-webkit-column-count: 3;
+	 -webkit-column-rule: 1px dashed blue;
+}
+
+}
+
+@media screen and ( min-width : 480px ) and (max-width : 830px)
+
+{
+	#main{-webkit-column-count: 2; -webkit-column-rule: 1px dashed blue;
+}
+
+}
+
+@media screen and ( max-width : 480px )
+
+{
+	#main {-webkit-column-count: 1;
+}
+
+	img {
+  max-height: 0;
+  width: 0;
+
+}
+}
+}
+
+
+
+#main
+{
+	overflow: hidden;
+}
+
+
+#main>p
+{
+	text-indent: 15px;
+
+	padding: 10px 20px 40px;
+	
+
+}
+
+
+#main>h1
+{
+	padding: 10px 15px;
+
+}
+
+
+#main img
+{
+	width: 90%;
+}
+

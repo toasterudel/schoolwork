@@ -1,0 +1,34 @@
+h1{
+    color: cyan;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+h2{
+    color: white;
+    text-decoration: underline;
+}
+
+p{
+    color: lightblue;
+    
+}
+body{
+    background: #232325;
+}
+
+a {
+    color: greenyellow
+}
+
+.list{
+    color:white;
+}
+
+.found{
+    color: lightcyan;
+}
+
+.errors{
+    color: red;
+}

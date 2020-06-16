@@ -1,0 +1,27 @@
+Inductive definitions:
+    definition
+	Porse
+	BNF
+	Rule
+    structural recursion (important)
+    structural induction (Not as important)
+
+Lambda Calculus
+    Syntax
+	BNF
+	    alpha-equivalance
+    Semantics
+	Substitution M{x:=N}
+	Operatoinal Semantics
+	    M->N
+
+Interpreters
+    Let
+	conca
+	Environment
+    Proc
+	closure
+    Rec
+	letrec
+	extendenvrec
+

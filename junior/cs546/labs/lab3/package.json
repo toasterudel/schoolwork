@@ -1,0 +1,14 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "CS-546 third lab",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Christopher Rudel 10413032",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

@@ -1,0 +1,332 @@
+0 NOTE Christopher Rudel, SSW 555-WS Agile Methods for Software, Project 02
+0 NOTE I pledge my honor that I have abided by the Stevens Honor System
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE My Family
+1 DATE 1 SEP 2019
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Chris Rudel
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Christopher /Rudel/
+2 GIVN Christopher
+2 SURN Rudel
+2 _MARNM Rudel
+1 SEX M
+1 BIRT
+2 DATE 6 JUL 1998
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Ted /Rudel/
+2 GIVN Ted
+2 SURN Rudel
+2 _MARNM Rudel
+1 SEX M
+1 BIRT
+2 DATE 7 MAR 1969
+1 FAMS @F1@
+1 FAMC @F2@
+0 @I3@ INDI
+1 NAME Mary Ellen /Villegas/
+2 GIVN Mary Ellen
+2 SURN Villegas
+2 _MARNM Rudel
+1 SEX F
+1 BIRT
+2 DATE 2 DEC 1967
+1 FAMS @F1@
+1 FAMC @F3@
+0 @I4@ INDI
+1 NAME Holly /Rudel/
+2 GIVN Holly
+2 SURN Rudel
+2 _MARNM Rudel
+1 SEX F
+1 BIRT
+2 DATE 2 MAR 1995
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Theodore /Rudel/
+2 GIVN Theodore
+2 SURN Rudel
+2 _MARNM Rudel
+1 SEX M
+1 BIRT
+2 DATE 25 OCT 1931
+1 FAMS @F2@
+0 @I6@ INDI
+1 NAME Alice /Rudel/
+2 GIVN Alice
+2 SURN Rudel
+2 _MARNM Rudel
+1 SEX F
+1 BIRT
+2 DATE 24 APR 1935
+1 FAMS @F2@
+0 @I7@ INDI
+1 NAME Cathy /Rudel/
+2 GIVN Cathy
+2 SURN Rudel
+2 _MARNM Hall
+1 SEX F
+1 BIRT
+2 DATE 8 FEB 1959
+1 FAMS @F4@
+1 FAMC @F2@
+0 @I8@ INDI
+1 NAME John /Rudel/
+2 GIVN John
+2 SURN Rudel
+2 _MARNM Rudel
+1 SEX M
+1 BIRT
+2 DATE 16 MAY 1962
+1 FAMS @F5@
+1 FAMS @F6@
+1 FAMS @F7@
+1 FAMC @F2@
+0 @I9@ INDI
+1 NAME Mary /Shedlock/
+2 GIVN Mary
+2 SURN Shedlock
+2 _MARNM Rudel
+1 SEX F
+1 BIRT
+2 DATE 4 JAN 1963
+1 FAMS @F5@
+0 @I10@ INDI
+1 NAME Gretchen /Rudel/
+2 GIVN Gretchen
+2 SURN Rudel
+2 _MARNM Rudel
+1 SEX F
+1 BIRT
+2 DATE 12 JUL 1999
+1 FAMC @F5@
+0 @I11@ INDI
+1 NAME Karen /Rudel/
+2 GIVN Karen
+2 SURN Rudel
+2 _MARNM Novak
+1 SEX F
+1 BIRT
+2 DATE 10 DEC 1954
+1 FAMS @F8@
+1 FAMS @F9@
+1 FAMC @F2@
+0 @I12@ INDI
+1 NAME Art /Hall/
+2 GIVN Art
+2 SURN Hall
+2 _MARNM Hall
+1 SEX M
+1 BIRT
+2 DATE 8 APR 1957
+1 FAMS @F4@
+0 @I13@ INDI
+1 NAME Ken /Lembitz/
+2 GIVN Ken
+2 SURN Lembitz
+2 _MARNM Lembitz
+1 SEX M
+1 BIRT
+2 DATE 11 MAY 1952
+1 DEAT Y
+2 DATE 4 OCT 2002
+1 FAMS @F9@
+0 @I14@ INDI
+1 NAME Ken /Novak/
+2 GIVN Ken
+2 SURN Novak
+2 _MARNM Novak
+1 SEX M
+1 BIRT
+2 DATE 9 DEC 1953
+1 FAMS @F8@
+0 @I15@ INDI
+1 NAME Scott /Lembitz/
+2 GIVN Scott
+2 SURN Lembitz
+2 _MARNM Lembitz
+1 SEX M
+1 BIRT
+2 DATE 15 SEP 1992
+1 FAMC @F9@
+0 @I16@ INDI
+1 NAME Kristen /Lembitz/
+2 GIVN Kristen
+2 SURN Lembitz
+1 SEX F
+1 BIRT
+2 DATE 11 MAR 1989
+1 FAMC @F9@
+0 @I17@ INDI
+1 NAME Ditas /Villegas/
+2 GIVN Ditas
+2 SURN Villegas
+2 _MARNM Villegas
+1 SEX M
+1 BIRT
+2 DATE 20 AUG 1932
+1 FAMS @F3@
+0 @I18@ INDI
+1 NAME Antonio /Villegas/
+2 GIVN Antonio
+2 SURN Villegas
+2 _MARNM Villegas
+1 SEX M
+1 BIRT
+2 DATE 31 AUG 1928
+1 FAMS @F3@
+0 @I19@ INDI
+1 NAME Nancy /Villegas/
+2 GIVN Nancy
+2 SURN Villegas
+2 _MARNM Villegas
+1 SEX F
+1 BIRT
+2 DATE 16 SEP 1972
+1 FAMC @F3@
+0 @I20@ INDI
+1 NAME Ray /Villegas/
+2 GIVN Ray
+2 SURN Villegas
+2 _MARNM Villegas
+1 SEX M
+1 BIRT
+2 DATE 6 JUN 1968
+1 FAMS @F10@
+1 FAMC @F3@
+0 @I21@ INDI
+1 NAME Megan /Slate/
+2 GIVN Megan
+2 SURN Slate
+2 _MARNM Villegas
+1 SEX F
+1 BIRT
+2 DATE 23 JAN 1969
+1 FAMS @F10@
+0 @I22@ INDI
+1 NAME Alex /Villegas/
+2 GIVN Alex
+2 SURN Villegas
+2 _MARNM Villegas
+1 SEX M
+1 BIRT
+2 DATE 10 APR 2005
+1 FAMC @F10@
+0 @I23@ INDI
+1 NAME Grace /Villegas/
+2 GIVN Grace
+2 SURN Villegas
+2 _MARNM Villegas
+1 SEX F
+1 BIRT
+2 DATE 17 JUL 2002
+1 FAMC @F10@
+0 @I24@ INDI
+1 NAME Jane /Smith/
+2 GIVN Jane
+2 SURN Smith
+2 _MARNM Doe
+1 SEX F
+1 BIRT
+2 DATE 4 JAN 1965
+1 FAMS @F7@
+1 FAMS @F11@
+0 @I25@ INDI
+1 NAME Joe /Parker/
+2 GIVN Joe
+2 SURN Parker
+2 _MARNM Doe
+1 SEX M
+1 BIRT
+2 DATE 27 AUG 1964
+1 FAMS @F11@
+0 @I26@ INDI
+1 NAME Layla /Doe/
+2 GIVN Layla
+2 SURN Doe
+2 _MARNM Doe
+1 SEX F
+1 BIRT
+2 DATE 27 AUG 1996
+1 FAMC @F11@
+0 @I27@ INDI
+1 NAME Mark /Doe/
+2 GIVN Mark
+2 SURN Doe
+2 _MARNM Doe
+1 SEX M
+1 BIRT
+2 DATE 7 OCT 2000
+1 FAMC @F11@
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 CHIL @I1@
+1 CHIL @I4@
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I5@
+1 WIFE @I6@
+1 CHIL @I2@
+1 CHIL @I7@
+1 CHIL @I8@
+1 CHIL @I11@
+1 _CURRENT Y
+0 @F3@ FAM
+1 HUSB @I18@
+1 WIFE @I17@
+1 CHIL @I3@
+1 CHIL @I19@
+1 CHIL @I20@
+1 _CURRENT Y
+0 @F4@ FAM
+1 HUSB @I12@
+1 WIFE @I7@
+1 _CURRENT Y
+0 @F5@ FAM
+1 HUSB @I8@
+1 WIFE @I9@
+1 CHIL @I10@
+1 _CURRENT Y
+0 @F6@ FAM
+1 HUSB @I8@
+1 _CURRENT N
+0 @F7@ FAM
+1 HUSB @I8@
+1 WIFE @I24@
+1 MARR
+1 DIV
+2 DATE 6 SEP 1996
+1 _CURRENT N
+0 @F11@ FAM
+1 HUSB @I25@
+1 WIFE @I24@
+1 CHIL @I26@
+1 CHIL @I27@
+1 _CURRENT Y
+0 @F8@ FAM
+1 HUSB @I14@
+1 WIFE @I11@
+1 _CURRENT Y
+0 @F9@ FAM
+1 HUSB @I13@
+1 WIFE @I11@
+1 CHIL @I15@
+1 CHIL @I16@
+1 _CURRENT N
+0 @F10@ FAM
+1 HUSB @I20@
+1 WIFE @I21@
+1 CHIL @I22@
+1 CHIL @I23@
+1 _CURRENT Y
+0 TRLR

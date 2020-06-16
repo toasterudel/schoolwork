@@ -1,0 +1,77 @@
+<!--
+    I didnt want to have everything handled by this one file
+    Every time i tried to route a different handlebar file in the 
+    routes folder it would only go to this page
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{titlePage}}</title>
+    <link rel="stylesheet" href="/public/site.css">
+</head>
+
+<body>
+    {{#if people}}
+        <h1>People Found: </h1>
+        <h2>{{personName}}</h2>
+    {{else}}
+        {{#if person}}
+            <h1>Person Found: {{#each person}}</h1>
+            <h2>{{firstName}} {{lastName}} {{/each}}</h2>
+        {{/if}}
+    {{/if}}
+    <main>    
+        <div class="people">
+        {{#if people}}
+        {{#each people}}
+        <ul>
+            
+            <li>
+                <a href="http://localhost:3000/details/{{id}}">{{firstName}} {{lastName}}</a>
+            </li>
+            <!--  Originally I had the #each and /each inside
+            the ul tags but the validator was complaining that it 
+            was not valid  -->             
+        </ul>
+        {{/each}}
+        {{else}}
+            {{#if person}}
+            {{#each person}}
+            <dl class="found">
+                <dt>ID</dt>
+                <dd>{{id}}</dd>
+                <dt>First Name</dt>
+                <dd>{{firstName}}</dd>
+                <dt>Last Name</dt>
+                <dd>{{lastName}}</dd>
+                <dt>Address</dt>
+                <dd>{{address}}</dd>
+                <dt>Zip Code</dt>
+                <dd>{{zip}}</dd>
+                <dt>Phone</dt>
+                <dd>{{phone}}</dd>
+                <dt>Social Security Number</dt>
+                <dd>{{ssn}}</dd>
+            </dl> 
+            {{/each}}
+            {{else}}
+            <p class="errors">We're sorry, but no results were found for {{personName}}.</p>
+            {{/if}}
+        {{/if}}
+        </div>
+        <form action="http://localhost:3000">
+            <input type="submit" value="Search for another person"/>
+        </form>
+    </main>
+
+    <footer>
+        {{#if title}}
+        <h1 class="errors">Errors: </h1>
+        <p class="errors">{{title}}</p>
+        {{/if}}
+    </footer>
+</body>
+</html>

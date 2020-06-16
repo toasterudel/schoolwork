@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{14F4118A-E133-5777-5C4F-DA9DADC24268}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/charSidMove.cs">
+    <Files>
+      <File FileName="Assets/Scripts/charSidMove.cs" Line="42" Column="46" />
+      <File FileName="Assets/Scripts/shrimpCollide.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="InClass02" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="charSidMove.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="775e6ec7-67b4-491d-be9e-9a1ad777a8c8" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

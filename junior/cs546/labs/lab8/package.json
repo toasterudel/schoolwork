@@ -1,0 +1,17 @@
+{
+  "name": "lab8",
+  "version": "1.0.0",
+  "description": "Eight lab for cs 546",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Christopher Rudel 10413032",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2"
+  }
+}

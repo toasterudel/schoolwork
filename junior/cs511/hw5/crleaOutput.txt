@@ -1,0 +1,23 @@
+﻿pan:1: invalid end state (at depth 208)
+pan: wrote crlea.pml.trail
+(Spin Version 6.4.6 -- 2 December 2018)
+Warning: Search not completed
+  + Partial Order Reduction
+Full statespace search for:
+  never claim           - (none specified)
+  assertion violations  +
+  cycle checks        - (disabled by -DSAFETY)
+  invalid end states  +
+State-vector 192 byte, depth reached 209, ••• errors: 1 •••
+      182 states, stored
+        0 states, matched
+      182 transitions (= stored+matched)
+       28 atomic steps
+hash conflicts:         0 (resolved)
+Stats on memory usage (in Megabytes):
+    0.038 equivalent memory usage for states (stored*(State-vector + overhead))
+    0.287 actual memory usage for states
+  128.000 memory used for hash table (-w24)
+    0.107 memory used for DFS stack (-m2000)
+  128.302 total actual memory usage
+pan: elapsed time 0 seconds

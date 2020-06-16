@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{F2A01D2B-E83B-8C20-3FAC-1EF0580F675A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/oarAquire.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Plant_move.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/plantMove.cs" />
+      <File FileName="Assets/Scripts/keyAquire.cs" Line="28" Column="1" />
+      <File FileName="Assets/Scripts/doorClicked.cs" Line="28" Column="72" />
+      <File FileName="Assets/Scripts/personClicked.cs" Line="26" Column="30" />
+      <File FileName="Assets/Scripts/oarAquire.cs" Line="26" Column="27" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="InClass01" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="oarAquire.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f4f597d8-4912-4c26-bb14-3d087314b774" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

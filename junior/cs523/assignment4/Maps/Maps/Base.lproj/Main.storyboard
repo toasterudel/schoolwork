@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qeW-qo-txD">
+                                <rect key="frame" x="0.0" y="60" width="375" height="567"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLE-t7-n3J">
+                                <rect key="frame" x="8" y="22" width="63" height="30"/>
+                                <state key="normal" title="Standard"/>
+                                <connections>
+                                    <action selector="standardBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="skf-0i-Ap8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMd-JE-7lk">
+                                <rect key="frame" x="160" y="22" width="63" height="30"/>
+                                <state key="normal" title="Satellite"/>
+                                <connections>
+                                    <action selector="satelliteBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tv8-bF-gNl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SA0-Bp-pF9">
+                                <rect key="frame" x="321" y="22" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Hybrid"/>
+                                <connections>
+                                    <action selector="hybridBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TNo-WA-m4L"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYD-S4-bSV">
+                                <rect key="frame" x="157" y="628" width="60" height="30"/>
+                                <state key="normal" title="Features"/>
+                                <connections>
+                                    <action selector="toggleMapFeatures:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jwa-NS-eMo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdk-KD-5Bg">
+                                <rect key="frame" x="321" y="628" width="30" height="30"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="zoomBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mR0-xx-Ujp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fg-Jc-PWu">
+                                <rect key="frame" x="16" y="628" width="30" height="30"/>
+                                <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="zoomOutBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kWy-z6-2yQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tdk-KD-5Bg" secondAttribute="trailing" constant="24" id="2fb-zz-u7l"/>
+                            <constraint firstItem="Tdk-KD-5Bg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="321" id="9jn-xf-5AB"/>
+                            <constraint firstItem="Tdk-KD-5Bg" firstAttribute="top" secondItem="qeW-qo-txD" secondAttribute="bottom" constant="1" id="CD7-42-9Kc"/>
+                            <constraint firstItem="xLE-t7-n3J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="ECh-XQ-qHg"/>
+                            <constraint firstItem="qeW-qo-txD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="EZm-od-hTl"/>
+                            <constraint firstItem="4fg-Jc-PWu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="F6e-DR-YLF"/>
+                            <constraint firstItem="xMd-JE-7lk" firstAttribute="leading" secondItem="xLE-t7-n3J" secondAttribute="trailing" constant="89" id="FVt-Zp-c1C"/>
+                            <constraint firstItem="qeW-qo-txD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Mxm-2Q-0Qs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DYD-S4-bSV" secondAttribute="trailing" constant="158" id="O9z-kE-zlF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SA0-Bp-pF9" secondAttribute="trailing" constant="8" id="QI1-oA-C6E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tdk-KD-5Bg" secondAttribute="bottom" constant="9" id="VWx-md-Laj"/>
+                            <constraint firstItem="DYD-S4-bSV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="157" id="clp-q7-SXn"/>
+                            <constraint firstItem="SA0-Bp-pF9" firstAttribute="leading" secondItem="xMd-JE-7lk" secondAttribute="trailing" constant="98" id="eS0-01-Czg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4fg-Jc-PWu" secondAttribute="bottom" constant="9" id="eiQ-9Q-m5R"/>
+                            <constraint firstItem="qeW-qo-txD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k0k-hs-Cfg"/>
+                            <constraint firstItem="4fg-Jc-PWu" firstAttribute="top" secondItem="qeW-qo-txD" secondAttribute="bottom" constant="1" id="mdw-SY-0B3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DYD-S4-bSV" secondAttribute="bottom" constant="9" id="mzx-9g-6BR"/>
+                            <constraint firstItem="qeW-qo-txD" firstAttribute="top" secondItem="xMd-JE-7lk" secondAttribute="bottom" constant="8" id="o1s-wc-0Ef"/>
+                            <constraint firstItem="DYD-S4-bSV" firstAttribute="top" secondItem="qeW-qo-txD" secondAttribute="bottom" constant="1" id="oDa-8z-vXZ"/>
+                            <constraint firstItem="xLE-t7-n3J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="p8F-AX-sgj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4fg-Jc-PWu" secondAttribute="trailing" constant="329" id="sH8-PM-fhf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qeW-qo-txD" secondAttribute="bottom" constant="40" id="tG8-bv-Dc9"/>
+                            <constraint firstItem="SA0-Bp-pF9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="uTS-hH-DKl"/>
+                            <constraint firstItem="xMd-JE-7lk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="wER-kR-2sJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="qeW-qo-txD" id="Pa2-WC-GRm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,8 @@
+/etc/selinux/
+/etc/selinux/targeted
+/etc/selinux/targeted/logins
+/etc/selinux/targeted/contexts
+/etc/selinux/targeted/contexts/users
+/etc/selinux/targeted/contexts/files
+/etc/selinux/targeted/policy
+/etc/selinux/targeted/policy

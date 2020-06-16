@@ -1,0 +1,51 @@
+*, html{
+    font-family: 'Times New Roman', Times, sans-serif;
+    font-size: 15px;
+}
+
+label{
+    font-size: 30px;
+}
+
+.container{
+    text-align: center;
+    margin-top: 5px;
+}
+
+textarea{
+    background-color: lightyellow;
+}
+
+#list-prime{
+    list-style-position: none;
+}
+
+.is-prime {
+    color: #00E676;
+    text-align: left;
+}
+
+.not-prime {
+    color: #FF3D00;
+    text-align: left;
+}
+
+.hidden{
+    display: none;
+}
+
+#error-container {
+    margin-top: 15px;
+    background-color: lightcoral;
+}
+
+button{
+    padding: 20px;
+    background-color: lightgreen;
+}
+
+
+#student-info {
+    list-style-type: none;
+}
+

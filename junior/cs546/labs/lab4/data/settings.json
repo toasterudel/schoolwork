@@ -1,0 +1,7 @@
+{
+    "mongoConfig": {
+      "serverUrl": "mongodb://localhost:27017/",
+      "database": "Christopher_Rudel_lab4"
+    }
+}
+  

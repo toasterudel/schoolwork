@@ -1,0 +1,719 @@
+/*
+* John Banya and Christopher Rudel
+* "I pledge my honor that I have abided by the Stevens Honor System."
+*/
+
+Initial test (FCFS): ./assign1 4 4 100 10 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 4
+|	Consumer threads: 4
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 2.540269 seconds
+|	
+|	Minimum turn-around time: 0.001468 seconds
+|	Maximum turn-around time: 0.031933 seconds
+|	Average turn-around time: 0.016457 seconds (1.645705/100)
+|
+|	Minimum wait time: 0.000433 seconds
+|	Maximum wait time: 0.031566 seconds
+|	Average wait time: 0.015506 seconds (1.550648/100)
+|	
+|	Producer throughput: 2391.941299 products/min
+|	Consumer throughput: 2362.168350 products/min
+|__________________________________________________________
+
+
+Test 2 (RR): ./assign1 4 4 100 10 1 20 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 4
+|	Consumer threads: 4
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 20
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 68.340914 seconds
+|	
+|	Minimum turn-around time: 0.100581 seconds
+|	Maximum turn-around time: 12.544988 seconds
+|	Average turn-around time: 6.646231 seconds (664.623108/100)
+|
+|	Minimum wait time: 0.000013 seconds
+|	Maximum wait time: 0.301161 seconds
+|	Average wait time: 0.244219 seconds (664.520752/2721)
+|	
+|	Producer throughput: 93.419917 products/min
+|	Consumer throughput: 87.795496 products/min
+|__________________________________________________________
+
+Test 3 (RR, same as above except higher quantum value): ./assign1 4 4 100 10 1 100 09846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 4
+|	Consumer threads: 4
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 100
+|	Seed: 0
+|
+|	---
+|
+|	Total run time: 12.554483 seconds
+|	
+|	Minimum turn-around time: 0.100806 seconds
+|	Maximum turn-around time: 2.811111 seconds
+|	Average turn-around time: 1.190980 seconds (119.098045/100)
+|
+|	Minimum wait time: 0.000346 seconds
+|	Maximum wait time: 0.300941 seconds
+|	Average wait time: 0.238024 seconds (119.011803/500)
+|	
+|	Producer throughput: 515.005531 products/min
+|	Consumer throughput: 477.930050 products/min
+|__________________________________________________________
+
+Test 4 (FCFS) lot more producers than consumers: ./assign1 1000 4 1000 10 0 0 9846359 
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 1000
+|	Consumer threads: 4
+|	Number of Products: 1000
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 25.532074 seconds
+|	
+|	Minimum turn-around time: 0.030238 seconds
+|	Maximum turn-around time: 0.316514 seconds
+|	Average turn-around time: 0.252943 seconds (252.943375/1000)
+|
+|	Minimum wait time: 0.029692 seconds
+|	Maximum wait time: 0.315251 seconds
+|	Average wait time: 0.252110 seconds (252.110382/1000)
+|	
+|	Producer throughput: 2366.535645 products/min
+|	Consumer throughput: 2352.761078 products/min
+|__________________________________________________________
+
+
+Test 5 (FCFS) lot more consumers than producers: ./assign1 4 1000 1000 10 0 0 9846359
+
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 4
+|	Consumer threads: 1000
+|	Number of Products: 1000
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 25.295649 seconds
+|	
+|	Minimum turn-around time: 0.000023 seconds
+|	Maximum turn-around time: 0.002793 seconds
+|	Average turn-around time: 0.001268 seconds (1.268267/1000)
+|
+|	Minimum wait time: 0.000011 seconds
+|	Maximum wait time: 0.001544 seconds
+|	Average wait time: 0.000470 seconds (0.469832/1000)
+|	
+|	Producer throughput: 2375.387878 products/min
+|	Consumer throughput: 2372.630081 products/min
+|__________________________________________________________
+
+Test 6 (RR) lot more producers than consumers: ./assign1 1000 4 1000 10 1 500 9846359 
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 1000
+|	Consumer threads: 4
+|	Number of Products: 1000
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 38.638798 seconds
+|	
+|	Minimum turn-around time: 0.029354 seconds
+|	Maximum turn-around time: 0.803335 seconds
+|	Average turn-around time: 0.383479 seconds (383.478546/1000)
+|
+|	Minimum wait time: 0.028153 seconds
+|	Maximum wait time: 0.301755 seconds
+|	Average wait time: 0.251244 seconds (382.644043/1523)
+|	
+|	Producer throughput: 1564.398766 products/min
+|	Consumer throughput: 1553.987389 products/min
+|__________________________________________________________
+
+
+Test 7 (RR) lot more consumers than producers: ./assign1 4 1000 1000 10 1 500 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 4
+|	Consumer threads: 1000
+|	Number of Products: 1000
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 25.312332 seconds
+|	
+|	Minimum turn-around time: 0.000054 seconds
+|	Maximum turn-around time: 0.002755 seconds
+|	Average turn-around time: 0.001300 seconds (1.299503/1000)
+|
+|	Minimum wait time: 0.000076 seconds
+|	Maximum wait time: 0.001330 seconds
+|	Average wait time: 0.000319 seconds (0.485534/1523)
+|	
+|	Producer throughput: 2374.607391 products/min
+|	Consumer throughput: 2371.067963 products/min
+|__________________________________________________________
+
+Test 8 (RR) small quantum, lots of products: ./assign1 10 10 1000 0 1 10 9846395
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 1000
+|	Queue size: 0 (infinite)
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 10
+|	Seed: 9846395
+|
+|	---
+|
+|	Total run time: 511.770678 seconds
+|	
+|	Minimum turn-around time: 0.400954 seconds
+|	Maximum turn-around time: 509.561615 seconds
+|	Average turn-around time: 332.471924 seconds (332471.937500/1000)
+|
+|	Minimum wait time: 0.000296 seconds
+|	Maximum wait time: 9.941622 seconds
+|	Average wait time: 6.521876 seconds (332465.687500/50977)
+|	
+|	Producer throughput: 5975.636444 products/min
+|	Consumer throughput: 117.240222 products/min
+|__________________________________________________________
+
+
+Test 9 (RR) large quantum, small products: ./assign1 10 10 10 0 1 1000 9846395
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 10
+|	Queue size: 0 (infinite)
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 1000
+|	Seed: 9846395
+|
+|	---
+|
+|	Total run time: 0.107784 seconds
+|	
+|	Minimum turn-around time: 0.000476 seconds
+|	Maximum turn-around time: 0.005783 seconds
+|	Average turn-around time: 0.003108 seconds (0.031076/10)
+|
+|	Minimum wait time: 0.000384 seconds
+|	Maximum wait time: 0.004691 seconds
+|	Average wait time: 0.002510 seconds (0.025100/10)
+|	
+|	Producer throughput: 5742.056122 products/min
+|	Consumer throughput: 5598.177795 products/min
+|__________________________________________________________
+
+Test 8.1: same as 8 but with FCFS instead of RR
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 1000
+|	Queue size: 0 (infinite)
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846395
+|
+|	---
+|
+|	Total run time: 10.160436 seconds
+|	
+|	Minimum turn-around time: 0.000912 seconds
+|	Maximum turn-around time: 0.101700 seconds
+|	Average turn-around time: 0.051240 seconds (51.240120/1000)
+|
+|	Minimum wait time: 0.002168 seconds
+|	Maximum wait time: 0.100781 seconds
+|	Average wait time: 0.050366 seconds (50.366051/1000)
+|	
+|	Producer throughput: 5946.429749 products/min
+|	Consumer throughput: 5905.704803 products/min
+|__________________________________________________________
+
+Test 10 (FCFS) small queue: ./assign1 10 10 1000 1 0 0 9846395
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 1000
+|	Queue size: 1
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846395
+|
+|	---
+|
+|	Total run time: 10.151995 seconds
+|	
+|	Minimum turn-around time: 0.000261 seconds
+|	Maximum turn-around time: 0.079395 seconds
+|	Average turn-around time: 0.006386 seconds (6.385577/1000)
+|
+|	Minimum wait time: 0.000138 seconds
+|	Maximum wait time: 0.079342 seconds
+|	Average wait time: 0.005532 seconds (5.532457/1000)
+|	
+|	Producer throughput: 5910.818024 products/min
+|	Consumer throughput: 5910.533752 products/min
+|__________________________________________________________
+
+Test 11 (RR) small queue: ./assign1 10 10 1000 1 1 500 9846395
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 1000
+|	Queue size: 1
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846395
+|
+|	---
+|
+|	Total run time: 15.468354 seconds
+|	
+|	Minimum turn-around time: 0.000082 seconds
+|	Maximum turn-around time: 0.095252 seconds
+|	Average turn-around time: 0.015251 seconds (15.250889/1000)
+|
+|	Minimum wait time: 0.000212 seconds
+|	Maximum wait time: 0.093064 seconds
+|	Average wait time: 0.009405 seconds (14.341992/1525)
+|	
+|	Producer throughput: 3879.032593 products/min
+|	Consumer throughput: 3879.155273 products/min
+|__________________________________________________________
+
+Number of products testing below: 
+
+Small = 100
+Large = 5000
+
+Defaults: ./assign1 10 10 100 10 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 1.028562 seconds
+|	
+|	Minimum turn-around time: 0.000029 seconds
+|	Maximum turn-around time: 0.023654 seconds
+|	Average turn-around time: 0.010909 seconds (1.090873/100)
+|
+|	Minimum wait time: 0.001850 seconds
+|	Maximum wait time: 0.030679 seconds
+|	Average wait time: 0.014547 seconds (1.454681/100)
+|	
+|	Producer throughput: 5834.757843 products/min
+|	Consumer throughput: 5840.304108 products/min
+|__________________________________________________________
+
+Small num of producers & small product(FCFS): ./assign1 1 10 100 10 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 1
+|	Consumer threads: 10
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 10.034091 seconds
+|	
+|	Minimum turn-around time: 0.000057 seconds
+|	Maximum turn-around time: 0.002535 seconds
+|	Average turn-around time: 0.001425 seconds (0.142505/100)
+|
+|	Minimum wait time: 0.000038 seconds
+|	Maximum wait time: 0.000247 seconds
+|	Average wait time: 0.000143 seconds (0.014268/100)
+|	
+|	Producer throughput: 598.014393 products/min
+|	Consumer throughput: 598.014393 products/min
+|__________________________________________________________
+
+Small num producers & large product(FCFS): ./assign1 1 10 5000 10 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 1
+|	Consumer threads: 10
+|	Number of Products: 5000
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 501.826577 seconds
+|	
+|	Minimum turn-around time: 0.000080 seconds
+|	Maximum turn-around time: 0.004209 seconds
+|	Average turn-around time: 0.001058 seconds (5.291235/5000)
+|
+|	Minimum wait time: 0.000021 seconds
+|	Maximum wait time: 0.000454 seconds
+|	Average wait time: 0.000133 seconds (0.665858/5000)
+|	
+|	Producer throughput: 597.816582 products/min
+|	Consumer throughput: 597.816010 products/min
+|__________________________________________________________
+
+Small num of producers & small product(RR): ./assign1 1 10 100 10 1 500 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 1
+|	Consumer threads: 10
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 10.038144 seconds
+|	
+|	Minimum turn-around time: 0.000031 seconds
+|	Maximum turn-around time: 0.002407 seconds
+|	Average turn-around time: 0.001190 seconds (0.118997/100)
+|
+|	Minimum wait time: 0.000005 seconds
+|	Maximum wait time: 0.000257 seconds
+|	Average wait time: 0.000117 seconds (0.018654/159)
+|	
+|	Producer throughput: 597.781677 products/min
+|	Consumer throughput: 597.723541 products/min
+|__________________________________________________________
+
+Small num producers & large product(RR): ./assign1 1 10 5000 10 1 500 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 1
+|	Consumer threads: 10
+|	Number of Products: 5000
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 501.837809 seconds
+|	
+|	Minimum turn-around time: 0.000078 seconds
+|	Maximum turn-around time: 0.004542 seconds
+|	Average turn-around time: 0.001107 seconds (5.535178/5000)
+|
+|	Minimum wait time: 0.000035 seconds
+|	Maximum wait time: 0.000700 seconds
+|	Average wait time: 0.000125 seconds (0.954752/7652)
+|	
+|	Producer throughput: 597.803764 products/min
+|	Consumer throughput: 597.802620 products/min
+|__________________________________________________________
+
+Small num consumers & small product(FCFS): ./assign1 10 1 100 10 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 1
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 10.135612 seconds
+|	
+|	Minimum turn-around time: 0.001961 seconds
+|	Maximum turn-around time: 1.016306 seconds
+|	Average turn-around time: 0.956738 seconds (95.673759/100)
+|
+|	Minimum wait time: 0.001035 seconds
+|	Maximum wait time: 1.015159 seconds
+|	Average wait time: 0.955782 seconds (95.578186/100)
+|	
+|	Producer throughput: 650.502892 products/min
+|	Consumer throughput: 592.021580 products/min
+|__________________________________________________________
+
+Small num consumers & large product (FCFS): ./assign1 10 1 5000 10 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 1
+|	Number of Products: 5000
+|	Queue size: 10
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 506.577355 seconds
+|	
+|	Minimum turn-around time: 0.002320 seconds
+|	Maximum turn-around time: 1.019312 seconds
+|	Average turn-around time: 1.011887 seconds (5059.435547/5000)
+|
+|	Minimum wait time: 0.001354 seconds
+|	Maximum wait time: 1.017848 seconds
+|	Average wait time: 1.010972 seconds (5054.858398/5000)
+|	
+|	Producer throughput: 593.275795 products/min
+|	Consumer throughput: 592.211037 products/min
+|__________________________________________________________
+
+
+
+
+Small num consumers & small product (RR): ./assign1 10 1 100 10 1 500 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 1
+|	Number of Products: 100
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 16.056541 seconds
+|	
+|	Minimum turn-around time: 0.203907 seconds
+|	Maximum turn-around time: 2.022186 seconds
+|	Average turn-around time: 1.534875 seconds (153.487457/100)
+|
+|	Minimum wait time: 0.000614 seconds
+|	Maximum wait time: 1.011597 seconds
+|	Average wait time: 0.964727 seconds (153.391541/159)
+|	
+|	Producer throughput: 404.130764 products/min
+|	Consumer throughput: 373.699894 products/min
+|__________________________________________________________
+
+
+Small num consumers & large product (RR): ./assign1 10 1 5000 10 1 500 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 1
+|	Number of Products: 5000
+|	Queue size: 10
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 772.698224 seconds
+|	
+|	Minimum turn-around time: 0.203862 seconds
+|	Maximum turn-around time: 3.032486 seconds
+|	Average turn-around time: 1.544063 seconds (7720.312988/5000)
+|
+|	Minimum wait time: 0.000547 seconds
+|	Maximum wait time: 1.013548 seconds
+|	Average wait time: 1.008321 seconds (7715.670410/7652)
+|	
+|	Producer throughput: 388.809071 products/min
+|	Consumer throughput: 388.249884 products/min
+|__________________________________________________________
+
+
+Small queue & small products (FCFS): ./assign1 10 10 100 1 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 100
+|	Queue size: 1
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 1.027307 seconds
+|	
+|	Minimum turn-around time: 0.000415 seconds
+|	Maximum turn-around time: 0.006366 seconds
+|	Average turn-around time: 0.001656 seconds (0.165582/100)
+|
+|	Minimum wait time: 0.000013 seconds
+|	Maximum wait time: 0.007842 seconds
+|	Average wait time: 0.001217 seconds (0.121739/100)
+|	
+|	Producer throughput: 5845.860901 products/min
+|	Consumer throughput: 5845.860901 products/min
+|__________________________________________________________
+
+Small queue & large products (FCFS): ./assign1 10 10 5000 1 0 0 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 5000
+|	Queue size: 1
+|	Scheduling Algorithm: 0 (First-Come-First-Serve)
+|	Quantum: 0
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 50.680921 seconds
+|	
+|	Minimum turn-around time: 0.000003 seconds
+|	Maximum turn-around time: 0.077335 seconds
+|	Average turn-around time: 0.009349 seconds (46.745964/5000)
+|
+|	Minimum wait time: 0.000113 seconds
+|	Maximum wait time: 0.076234 seconds
+|	Average wait time: 0.008471 seconds (42.356987/5000)
+|	
+|	Producer throughput: 5919.417114 products/min
+|	Consumer throughput: 5919.417114 products/min
+|__________________________________________________________
+
+Small queue & small products (RR): ./assign1 10 10 100 1 1 500 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 100
+|	Queue size: 1
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 1.626351 seconds
+|	
+|	Minimum turn-around time: 0.000019 seconds
+|	Maximum turn-around time: 0.097615 seconds
+|	Average turn-around time: 0.015119 seconds (1.511931/100)
+|
+|	Minimum wait time: 0.000022 seconds
+|	Maximum wait time: 0.092730 seconds
+|	Average wait time: 0.008747 seconds (1.390719/159)
+|	
+|	Producer throughput: 3690.090179 products/min
+|	Consumer throughput: 3690.090179 products/min
+|__________________________________________________________
+
+Small queue & large products (RR): ./assign1 10 10 5000 1 1 500 9846359
+_____________________STATISTICS___________________________
+|
+|	Producer threads: 10
+|	Consumer threads: 10
+|	Number of Products: 5000
+|	Queue size: 1
+|	Scheduling Algorithm: 1 (Round-Robin)
+|	Quantum: 500
+|	Seed: 9846359
+|
+|	---
+|
+|	Total run time: 77.341806 seconds
+|	
+|	Minimum turn-around time: 0.000271 seconds
+|	Maximum turn-around time: 0.095700 seconds
+|	Average turn-around time: 0.015338 seconds (76.691551/5000)
+|
+|	Minimum wait time: 0.001651 seconds
+|	Maximum wait time: 0.094049 seconds
+|	Average wait time: 0.009432 seconds (72.171997/7652)
+|	
+|	Producer throughput: 3878.885651 products/min
+|	Consumer throughput: 3878.885651 products/min
+|__________________________________________________________
+
+Producer throughput FCFS: (2391.941299 + 426.363173 + 2375.387878 + 5946.429749 + 5976.653595 + 597.816582 + 650.502892 + 593.275795 + 5845.860901 + 5919.417114)
+AVG: 3072.3648978
+Median: 2383.6645885
+
+Consumer throughput FCFS: (2362.168350 + 406.072254 + 2372.630081 + 5905.704803 + 5840.304108 + 597.816010 + 592.021580 + 592.211037 + 5845.860901 + 5919.417114) 
+AVG: 3043.4206238
+Median: 2367.3992155
+
+Producer throughput RR: (93.419917 + 515.005531 + 1564.398766 + 2374.607391 + 5975.636444 + 5742.056122 + 597.781677 + 597.803764 + 404.130764 + 388.809071 + 3690.090179 + 3878.885651)
+AVG: 2151.88543975
+Median: 1081.101265
+
+Consumer throughput RR: (87.795496 + 477.930050 + 1553.987389 + 2371.067963 + 117.240222 + 5598.177795 + 597.723541 + 597.802620 + 373.699894 + 388.249884 + 3690.090179 + 3878.885651)
+AVG: 1644.387557
+Median: 597.7630805
+
+Average FCFS runtime: (2.540269 + 25.532074 + 25.295649 + 10.160436 + 10.151995 + 10.034091 + 501.826577 + 10.135612 + 506.577355 + 1.027307 + 50.680921 )
+104.905662364
+Median: 10.160436
+
+Average RR runtime: (68.340914 + 12.554483 + 38.638798 + 25.312332 + 511.770678 + 0.107784 + 15.468354 + 10.038144 + 501.837809 + 16.056541 + 772.698224 + 1.626351 + 77.341806) 
+157.830170615
+Median: 25.312332
+

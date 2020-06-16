@@ -1,0 +1,8 @@
+let rec has_duplicate_fields = function
+    |[] -> false
+    | (id, f)::fs -> List.me
+
+let rec type_of_expr en = function
+    | Record(fs) ->
+      if (not (has_duplicate_fields
+      then RecordType (List

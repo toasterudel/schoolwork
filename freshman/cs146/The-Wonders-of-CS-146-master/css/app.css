@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans');
+
+/* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  text-align: center;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+h2, h3, p, img {
+  padding-top: 2rem;
+}
+
+h1 { font-size: 4.2rem; }
+h2 { font-size: 3.6rem; }
+h3 { font-size: 3rem; }
+
+/* Navigation Styling */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #d3d3d3;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.33);
+}
+
+.nav-content {
+  line-height: 50px;
+  height: 51px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+nav ul {
+  list-style: none;
+  float: right;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Lato', sans-serif;
+}
+
+.brand {
+  font-size: 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  float: left;
+}
+
+nav ul li a {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: #999;
+}
+
+nav ul li a:hover {
+  color: #333;
+}
+
+/* Main page header styling */
+#home header {
+  width: 100%;
+  height: 60vh;
+  margin: 0 auto;
+}
+
+#home header section {
+  margin-top: 33vh;
+  text-align: center;
+}
+
+#home header section p {
+  margin: 5vh 0 5vh 0;
+}
+
+#home header section a {
+  text-decoration: none;
+  color: #999;
+  padding: 7px 35px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+#home header section a:hover {
+    color: #333;
+    border-color: #333;
+    box-shadow: inset 0px 0px 4px 0px rgba(0,0,0,0.5);
+}
+
+/* Media queries for RWD requirement... */
+@media (min-width: 990px) {
+  section:first-of-type {
+    margin-top: 10rem !important;
+  }
+
+  #home .testimonials {
+    margin-top: 2rem;
+    column-count: 3;
+  }
+
+  #home .testimonials li {
+    display: inline-block;
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px;
+
+  }
+
+}
+
+/* General Styling */
+section, aside {
+  width: 90%;
+  margin: 0 auto;
+}
+section {
+  margin-bottom: 20vh;
+}
+
+section:first-of-type {
+  margin-top: 20rem;
+}
+
+aside {
+  margin-bottom: 10vh;
+}
+
+ul {
+  text-align: left;
+}
+
+li {
+  margin-top: 10px;
+}
+
+
+/* Footer Styling */
+footer {
+  width: 100%;
+  background-color: #333;
+  font-size: 1.2rem;
+  color: #d3d3d3;
+  padding: 10px 30px;
+  text-align: center;
+}
+
+footer p {
+  width: 90%;
+  margin-top: 10px;
+}
+
+/* General Styling */
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+form > * {
+  text-align: left;
+  display: block;
+  margin-top: 10px;
+}
+input, textarea {
+  width: 50%;
+}
+input {
+  height: 30px;
+  line-height: 30px;
+}
+
+/* Quiz Styling */
+#choices {
+  margin: 0 auto;
+  max-width: 75%;
+}

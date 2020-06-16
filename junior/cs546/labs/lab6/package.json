@@ -1,0 +1,14 @@
+{
+  "name": "lab6",
+  "version": "1.0.0",
+  "description": "Sixth lab for cs 546",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Christopher Rudel 10413032",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

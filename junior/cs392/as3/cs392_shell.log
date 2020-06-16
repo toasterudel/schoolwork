@@ -1,0 +1,17 @@
+pwd
+ls -l -a
+mkdir temp
+rm -rf temp/
+ps -h
+man ls
+exit
+ls
+exit
+ls
+make clean
+ls
+vim cs392_shell.log
+exit
+ls
+make clean
+exit

@@ -1,0 +1,14 @@
+John Banya and Christopher Rudel
+"I pledge my honor that I have abided by the Stevens Honor System."
+Professor Tsekourakis
+CS 492
+Assignment 1 - Analysis 
+
+	All data talked about in this analysis comes from the outputs.txt document provided in the archive. 
+	On average, the FCFS algorithm had a faster runtime than the RR algorithm at 104.905662364 compared to the RR runtime at 157.830170615. The median for the FCFS algorithm is also faster than the RR runtime at 10.160436 compared to 25.312332. On average and on median for producer and consumer throughput was higher as well. 
+	To start, the tests conducted were with 4 producer and consumer threads, 100 productions and a queue size of 10. On the first come first serve (FCFS) algorithm, the total runtime was about 2.54 seconds whereas with a time quantum of 20 on the round robin (RR) algorithm the total runtime was about 69.34 seconds. This shows how the RR algorithm is not as efficient as the FCFS algorithm when the time quantum is to small. In the next test the time quantum is increased to 100, and we see a boost in performance as the total runtime is reduced to 12 seconds. It appears that as the time quantum increases the RR algorithm does better, however if the time quantum is too large there is a risk of the RR becoming the FCFS algorithm. In the next 4 tests, the number of producers and consumers are greatly increased depending on the test. FCFS performed better than RR during this test. 
+	Next to test the problem addressed on the homework, the question of small time quantum and large products vs large time quantum and small products for RR was tested. As expected, the run with the large quantum and small amount of products performed much better at 0.107784 compared to 511.770678. This is thanks to the large time quantum in the second run not having to context switch as often. The FCFS algorithm was performed with the same parameters as the large products, and the total runtime was 10.160436, where the system did not have to constantly context switch due to the nature of the algorithm. 
+	The algorithms were also tested to see how a small queue would affect each algorithm. With a queue size of 1, the total runtime for the FCFS was 10.151995 and the runtime for the RR was 15.468354; again the FCFS being faster. 
+	Past this are the tests run again with the numbers specified in the document, where we have mostly the same results as before. In the tests with a small amount of producers, the RR algorithm had approximately the same runtime as the FCFS algorithm. 
+	Conclusion: The FCFS algorithm performed significantly faster than the RR algorithm in most situations. The RR algorithm never really surpassed the FCFS algorithm in terms of overall runtime or producer/consumer throughput. This was expected as RR tends to allow shorter processes to execute while longer ones do, and is not as concerned about runtime. 
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+</head>
+<body>
+    <ul>
+        <li>User ID: {{user._id}}</li>
+        <li>Username: {{user.username}}</li>
+        <li>First Name: {{user.firstName}}</li>
+        <li>Last Name: {{user.lastName}}</li>
+        <li>Profession: {{user.Profession}}</li>
+        <li>Bio: {{user.Bio}}</li>
+    </ul>
+    <br>
+    <form action="/logout">
+        <input type="submit" value="Logout">
+    </form>
+    
+</body>
+</html>

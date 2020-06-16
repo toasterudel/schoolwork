@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>People Finder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/public/site.css">
+</head>
+
+<body>
+    <main>
+        <h1>People Finder</h1>
+        <article>
+            <header>
+                <h2>This is for CS-546</h2>
+            </header>
+            <p>
+                Welcome to the People Finder for Lab 8! This aims to have the user search for people from a database
+            </p>
+            <form action="http://localhost:3000/search" method="post" id="form1">
+                <label for="fName" class="list">First Name</label>
+                <input type="text" name="firstName" id="fName"><br>
+                <br>
+                <label for="lName" class="list">Last Name</label>
+                <input type="text" name="lastName" id="lName"><br>
+            </form>
+            <button type="submit" form="form1" value="Submit">Submit</button>
+        </article>
+    </main>
+</body>
+
+</html>

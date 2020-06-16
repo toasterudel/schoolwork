@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us: Wonders of CS 146</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body id="contact">
+  <header>
+    <nav>
+      <div class="nav-content">
+        <a href="index.html" class="brand">The Wonders of CS 146</a>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="web-basics.html">Web Basics</a></li>
+          <li><a href="project-management.html">Project Managment</a></li>
+          <li><a href="get-in-touch.html">Get in Touch</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <h1>Get in touch with the professor:</h1>
+    <h2>Iraklis “Hercules” Tsekourakis</h2>
+    <a href="mailto:itsekour@stevens.edu">itsekour@stevens.edu</a>
+  </section>
+  <section>
+    <h1>Office of the Registrar</h1>
+    <p>Location: 1 Castle Point Terrace, Howe Center, 10th Floor</p>
+    <p>Hours: Monday- Friday 9am-5pm</p>
+    <h3>Useful Forms:</h3>
+    <ul>
+      <li><a href="https://www.stevens.edu/sites/stevens_edu/files/Change_of_Enrollment.pdf">Change of Enrollment Form</a></li>
+      <li><a href="https://www.stevens.edu/sites/stevens_edu/files/files/registrar/forms/study_plans/Undergraduate_Change_of_Major.pdf">Undergraduate Change of Major Form</a> (For those feeling bold)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Drop us a line</h1>
+    <form class="form" onsubmit="formSubmit(); return false;">
+      <label for="name">Name*: </label>
+      <input id="name" type="text" name="name" placeholder="Name" required>
+
+      <label for="email">Email Address*: </label>
+      <input id="email" type="email" name="email" placeholder="Email" required>
+
+      <label for="phone">Phone Number: </label>
+      <input id="phone" type="text" name="phone" placeholder="Phone #">
+
+      <label for="feedback">Feedback*: </label>
+      <textarea id="feedback" name="feedback" rows="8" cols="40" placeholder="Questions, Comments or Concerns" required></textarea>
+
+      <label for="terms">I Agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">terms of service</a>*: </label>
+      <input id="terms" type="checkbox" name="terms" required>
+
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; CS-146: Group 12, 2016. All rights reserved.</p>
+    <p>Made with &lt;3 by: Edward Minnix III, Matthew Koroluk, Christopher Rudel, and Andrew O&#39;Brien</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "lab9",
+  "version": "1.0.0",
+  "description": "9th lab for 546",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Christopher Rudel 10413032",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2"
+  }
+}

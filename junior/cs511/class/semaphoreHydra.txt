@@ -1,0 +1,18 @@
+int c=0;
+Semaphore s = new Semaphore(1); //guarentees c is 100
+
+thread P: {
+	repeat(50){
+	s.acquire();
+	c++;
+	s.release();
+    }
+}
+
+thread Q:{
+	repeat(50) {
+	s.acquire();
+	c++;
+	s.release();
+    }
+}

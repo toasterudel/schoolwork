@@ -1,0 +1,23 @@
+Task 1:
+For task 1, we solved the problem by allowing only a single philosopher to eat at any given moment. This prevents deadlock because only a single philosopher will be able to pick up forks, meaning that we can never reach a deadlock/livelock situation where all forks are used at once.
+
+This was done by creating a mutex named "diner_mutex", which is initialized as a global variable (and destroyed at the end of main) to be shared between all the diners. Whenever a philosopher is hungry, the thread attempts to lock the mutex. At this point one of two situations may occur:
+	1. No other philosopher is currently eating, so the mutex was unlocked and will be locked (atomically) by the hungry philosopher. The philosopher then proceeds to eat and unlocks the mutex for the other threads when finished.
+	2. Another philosopher is currently eating, so the mutex was locked and the hungry philosopher will block until the mutex is unlocked by the currently-eating thread. All philosophers that are hungry will remained blocked until the currently eating thread is finished (who will unlock the mutex), and then a single previously blocked thread will be given the opportunity to eat.
+
+By using a global mutex that locks prior to eating and unlocks after eating, we ensure that only a single thread may be eating at any given moment.
+
+----------------------------------------------------------------------
+
+Task 2:
+For task 2, we solved the problem by allowing only 4 of the 5 philosophers to eat at any given moment. This prevents deadlock because deadlock will only occur when all five philosophers pick up a single fork and are unable to proceed to eat. If only 4 philosophers are able to eat at any given moment, then there must be at least one philosopher with two forks, meaning that he is able to proceed. Therefore, we can never reach a situation where all threads are unable to proceed, preventing deadlock.
+
+This was done by creating a global diner mutex (diner_mutex), a global condition variable diner_lock, and a global counter (an integer). In this case, the condition variable will be used to signal between threads, the counter will be used to keep track of how many philosophers are eating, and the mutex will be used to ensure that the counter operations are atomic.
+
+Whenever a philosopher is hungry, we first lock the diner mutex to ensure that we maintain the invariant of the counter between threads, increment the counter, and then check to see if 4 diners are currently eating. At this point, one of two sitations may occur:
+	1. Less than 4 diners at currently eating, so we may proceed. We unlock the mutex (so that other threads may go through the same operation) and the philosopher then eats.
+	2. Exactly 4 of the 5 diners are currently eating, so the thread must wait. The thread uses the condition variable to wait, and unlocks the mutex (so that other threads may operate on the counter variable). The thread sleeps until a wakeup signal is received.
+
+The above method ensures that only 4 of the 5 philosophers may eat at a given moment. If all 5 philosophers attempt to eat at the exact same time, they must first pass through the mutex critical region already mentioned. Because the mutex operations are atomic, ensuring that only one thread will be in the region at a given time, 4 of the 5 threads will pass through the region (incrementing the counter each time). The fifth thread, however, will see that four threads have already passed through and are eating, and will block.
+
+When a philosopher is done eating, then we must decement the counter and send a wakeup signal (if needed). We must also do this atomically, so the finishing diner will lock the mutex and decrement the eating counter. Then the thread will check to see how many diners are currently eating. If the thread sees that a thread has attempted to eat but was blocked (the counter was 5, now is 4), it will send a wakeup signal and then unlock the mutex. 

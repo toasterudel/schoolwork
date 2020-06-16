@@ -1,0 +1,15 @@
+{
+  "name": "lab7",
+  "version": "1.0.0",
+  "description": "Seventh lab for cs 546",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Christopher Rudel 10413032",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongodb": "^3.2.2"
+  }
+}

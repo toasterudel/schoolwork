@@ -1,0 +1,32 @@
+#include "avr/io.h"
+.global loop
+.global setup
+.global timer
+.global again
+setup:
+  ldi r16, 0b00100000
+  sts DDRB, r16
+
+loop:
+  ldi r16, 0b00100000
+  sts PORTB, r16
+  call timer
+  ldi r17, 0b00000000
+  sts PORTB, r17
+  call timer
+  jmp loop
+
+timer:
+    LDI r17, 250
+L1: LDI R18, 100
+L2: LDI R19, 100
+L3:
+    NOP
+    NOP
+    DEC R19
+    BRNE L3
+    DEC R18
+    BRNE L2
+    DEC R17
+    BRNE L1
+ret

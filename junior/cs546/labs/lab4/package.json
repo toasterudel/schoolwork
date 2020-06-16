@@ -1,0 +1,14 @@
+{
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "CS-546 fourth lab",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Christopher Rudel 10413032",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.1.13"
+  }
+}
