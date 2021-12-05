@@ -1,0 +1,534 @@
+#lang eopl
+
+;Christopher Rudel
+;2/14/17
+;CS135LD
+;I pledge my honor that I have abided by the Stevens Honor System
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; lab2 assignment Fall 2016
+; Friday, September 23, 2016
+;(Have we done this before???)
+
+; Objectives: Get familiar with using DrRacket to edit definitions and 
+;interpret expressions.  Get familiar with the built-in list operators, 
+;operations, and ideas.  
+
+; Read through the rest of this file.  As you go, add the Scheme 
+;definitions to your file, one at a time.  Click 'run' for each one, and 
+;fix syntax errors before proceeding to the next.  Additional 
+;instructions may appear in *** comments below. 
+
+; Remember: The DrRacket implementation is case-sensitive.  
+;We'll use that to our advantage a bit today.
+
+;PART 0:  QUOTE  (Sweet Sweet Syntactic Sugar) - 5 pts
+;PART 1:  LISTS  (list/length/reverse/append) - 5 pts
+;PART 2:  CAR & CDR - 5 pts
+;PART 3:  CONS (The Magnificent) - 5 pts
+;PART 4:  LISTS-OF-LISTS-OF-LISTS-OF-LISTS-OF-LISTS.... - 5 pts
+;GOLDEN SNITCH:   ?????????? - Bonus 5 pts
+ 
+
+;PART 0:  quote  (warm up)
+
+;Scheme takes everything literally; Scheme is impatient.  If you say +, 
+;Scheme assumes you want to add.  RIGHT NOW.  
+;However, sometimes we want to talk about objects rather than their 
+;values.
+
+;In such cases, to use objects abstractly, we use the quote procedure:
+(quote +)
+;That tells Scheme we're referring to +, but we aren't DOING +.
+;Happily, it gets easier:
+'+
+;Just a simple quote mark: ' in front does the same thing.  This is what
+;we call "syntactic sugar", an addition to a computer language that 
+;makes things look clearer or nicer without adding any really 
+;functionality to the language.  (Perhaps the best example is the ++ 
+;operator in JAVA & C++.  It turns the common increment i=i+1 into i++.)
+(define pi 3.14159265)
+;Now type both:  pi AND 'pi.  See the difference?
+;Without the quote, Scheme returns the VALUE of pi.
+;With the quote, Scheme returns the NAME of pi.
+
+;Sometimes the distinction gets a little blurry:
+3
+'3
+;See what I mean?  When we talk about "3", it can be confusing whether 
+;we're talking about the value of the number or the name of the number.  
+;Just keep that in mind as we start assembling lists....
+
+
+;1: LISTS   (more warm up)
+
+;The key feature of Scheme that we are going to exploit from here on out 
+;is the "list" data structure.  A list is just an ordered sequence of 
+;items enclosed in parentheses.  Where do they come from?  Why, we make 
+;them:
+(define firstlist (list 1 2 3))
+;So now we have a list called "firstlist" that contains 1, 2, and 3 in 
+;that order.  Just type   firstlist   in the window below.
+;How about
+(define secondlist (list 2 12 22 32 42)) ;?
+(define shortlist (list 0))
+;We can also shortcut this with a quote:
+(define thirdlist '(3 33 333 3333))
+;Just for fun, try this one:
+(define procs (list + - * /))
+;Type  procs  in the Interactions window and see what you get.
+;Not exactly what we wanted.
+;So try it like this:
+(define procedures (list '+ '- '* '/))
+;Now type   procedures   in the Interactions window.
+;This time it's the symbols, as we expected.
+
+;Of course, lists don't actually have to have stuff in them.
+;One of our most important tools will be the empty list.
+;It's so important it goes by several names.
+;It's actually just called "empty".  Like this:
+empty 
+;If you typed that out, you saw ().  A whole lot of nothing between 
+;parentheses.  An air sandwich.  Or would that be (air)?
+
+;Try (list air).  Can you imagine how to fix it?
+;We could 
+(define air 3) ;and then do 
+(list air);, or we could 
+(list 'air);  See the difference?
+
+;That brings us to another of the "names" for empty:
+(quote ()) ;also:
+'() ;We'll use that one quite a bit.
+
+;Oh, and if we want to ask whether a list actually has any stuff in it, 
+;we have the predicate "null?"  (The question mark at the end is a 
+;signal that the result will be a boolean, either #t or #f.)
+(null? empty)
+(null? '())  ;If you try this without the quote, you'll get an error 
+;message.
+(null? procedures)
+
+;And remember from Lab 0 that we have   equal?, a predicate that will 
+;allow us to compare lists.
+(equal? firstlist secondlist)
+;Two lists are equal iff they have exactly the same entries in the same 
+;sequence.
+
+;First, we might like to know how many items are in a list.  Scheme 
+;provides the "length" procedure for that:
+(length firstlist)
+(length shortlist)
+(length empty)
+;Also, there are times we want to reverse the order of items in a 
+;list.  Scheme gives us the "reverse" procedure:
+(reverse firstlist)
+(reverse shortlist)
+(reverse empty)
+;Keep reverse and length in mind.  We'll use them frequently.
+
+;We made lists with the list operation, and we can combine lists
+;with append:
+(append shortlist firstlist)
+(append firstlist firstlist)
+;append can take arbitrarily many argument:
+(append firstlist firstlist firstlist)
+;Really, arbitrarily many:
+(append firstlist)
+;Really really:
+(append) ;before you try this...What do you EXPECT to happen?
+;Surprised?
+
+;There's nothing to show your TA from this section, but there will be two
+;pieces to PART 3 when we meet cons the Magnificent.
+
+
+;PART 2: car & cdr
+
+;Now that we have some lists, what can we do with them?
+;Scheme has three basic operations on lists (and we make many more out 
+;of those.)  Two of those operations allow us to look inside a list.  
+;These are car and cdr.  [At the end of the this lab, I'll explain where 
+;those names came from.]
+
+;The operation car returns the very first entry in a list.  Try it!
+(car firstlist)
+(car secondlist)
+(car procedures)
+(car shortlist)
+;Now if you try (car empty) or (car '())...note the quote...you'll get 
+;an error.  There's nothing in the list, so there is no first thing!
+
+;The operation cdr returns everything EXCEPT the very first entry in a 
+;list, and cdr ALWAYS returns a list.  
+;Repeat after me:  cdr  ALWAYS returns a LIST. 
+(cdr firstlist)
+(cdr secondlist)
+(cdr procedures)
+(cdr shortlist)
+;Now if you try (cdr empty) or (cdr '())....you'll get an error again.  
+;(cdr shortlist) gave us '(). The cdr of a list with one item is empty.  
+;The cdr of a list with NO items is somehow even less nothing.
+
+;So.  car and cdr do not work on the empty list, and the cdr of a 1-item 
+;list is the empty list.  Pretty important ideas there.
+
+
+;For your CA:
+
+;Define a procedure 'last' which returns the last element of a non-empty
+;list.  It's true, you only have car to work with, and car only lets you 
+;see the first entry in a list.  But you can turn your list into a 
+;different list.
+
+(define (last list-of-things)
+  (car (reverse list-of-things)))
+
+
+;PART 3: cons  (the Magnificent)        You Will Program
+
+;Once we have lists, of course, we will not be content to leave 
+;well-enough alone!  We will want to modify our lists.  car and cdr 
+;allowed us to peek inside (and make NEW shorter sublists with cdr).
+;Now cons, our third important operator, will let us LENGTHEN lists by 
+;adding whatever we want to the front of an existing list:
+(cons 0 firstlist)
+;car and cdr took just one argument, a (non-empty) list.
+;cons takes TWO arguments:  the first can be anything, the second MUST 
+;be a list, though it can be the empty list.
+
+;Give these a try:
+(cons '@ procedures)
+(cons 0 '())
+
+(cons firstlist secondlist)
+(cons secondlist firstlist)
+(cons '() '())
+
+;What is the difference between 
+(cons firstlist secondlist)
+;and
+(append firstlist secondlist)
+;?
+;Do they have the same length?
+;You should check. The difference is immense, as we'll see in PART 4.
+
+
+;Now, make a mistake.  Do this:
+
+(cons 1 2)
+
+;What you have there, is the dreaded "dotted pair".  You will see this 
+;many times.  It occurs when the second argument to cons is not a list.
+;cons has attempted to make a list but it's not quite a list.
+;When (not if) you see this in the future, you have tried to use cons
+;with something other than a list as the second argument.  You will make
+;this mistake again.  And again.  And again.  Perhaps later today.....
+
+;Let's start putting it all together.  And taking it all apart.
+
+;At the top of this PART, it says:  You Will Program
+;But that's not how Yoda would say it.
+;He would say:  Program You Will
+
+;Now, write a function "yoda" that takes 3-word lists apart and
+;reassembles them to sound like Yoda is talking:
+
+;(yoda '(You Will Program)) --> (Program You Will)
+;(yoda '(This Is Easy)) -->  (Easy This Is)
+;(yoda '(Do It Now)) --> (Now Do It)
+
+;Really, do it now.....
+
+(define (yoda 3-word-list) ;You may assume the list is three words long.
+  (cons (last 3-word-list) (reverse (cdr (reverse 3-word-list)))))
+
+;Hint:  You can use the "last" function you created in PART 2 if you 
+;want, but you don't need to for this.  (Or you could try it twice, 
+;both with and without "last".  Call the other one Yoda--with a 
+;capital Y.)
+
+;CA will check...er...check CA will.
+
+;Now let's do something a little harder. Let's turn a word into its pig 
+;latin equivalent.  Do you know pig latin?  Well, words get modified in 
+;this way: The first consonant (or consonant cluster) gets removed from 
+;the front, stuck on the end, and then the syllable "ay" is added.
+
+;So "happy birthday" becomes "appyhay irthdaybay".  See?
+
+;Now, we want to work with lists, not strings, so we'll represent words 
+;as lists of characters with spaces between them like this:
+
+(define happy '(h a p p y)) ; and
+(define birthday '(b i r t h d a y))
+
+
+;So now define "pig-latin" as a procedure that removes the first letter, 
+;places it at the end, and adds an "a y".  So:
+
+;(pig-latin happy) --> (a p p y h a y)
+;(pig-latin birhtday --> (i r t h d a y b a y)
+
+;You have car, cdr, cons, list, & append all at your disposal.
+;Think about what each does and how you can use them to create:
+
+(define (pig-latin wordlist)
+  (append (cdr wordlist) (list (car wordlist)) '(a y)  ))
+
+;Hint:  If you want, you can "cheat" and 
+(define ay '(a y)) ;But you don't HAVE to use that.
+
+;Your CA will give you a word to turn into pig-latin.
+;Be sure to enter it as: '(l e t t e r s)
+
+
+;PART 4: lists-of-lists
+
+;Lists can be entries in lists.  These nested lists make many amazing 
+;things possible, as we will come to see.
+
+;How is '() different from '(()) ?
+
+;We've seen Scheme lists with lists inside them.  
+
+;It's important to be able to think in terms of lists of lists, so 
+;sometimes we need to go poking and peeking around inside lists.  I 
+;mean, think about your typical student:
+
+(define student 
+  '((IDnumber DegreeSought) (LastName FirstName) (day month year) (class/year ((major) (minor)) GPA) ((number street apt) (city state zip)) (class1 class2 ... classN)))
+
+;That's a template for an entry in a database.
+;Some things are pretty ordinary, but how would you handle a double 
+;major or double minor?  What about someone with six minors?
+
+;OK, so let's poke around.  You know:
+
+(car student) ;but that's a non-empty list.  So what's
+
+(car (car student)) ;?
+
+;That's important enough, and common enough, that Scheme has a separate
+;procedure for 'the car of the car': (caar student).
+
+(caar student)   ;See?  Clever, no?  More syntactic sugar.
+
+;Think this might extend further?
+
+(cddr student);?
+
+(cdar student);?
+
+(cadr student);?  Make sense?
+
+;Dare we try ITS car?
+
+(cadar student)  ;Do you see the difference?
+
+;Does 
+
+(cdddr student); do what you expect?
+
+;You can try to pronounce these as "car-ar" and "could-ar" and "cad-ar" 
+;and "could-ould-er", but it's hard to be precise.  And you sound like a 
+;pirate with teeth rotted out by all the syntactic sugar.
+
+;Try (caaar student).  Pay attention to the error message.
+;Try (caaaaaaaaaaaaaaaar student).  Same error message, or different?
+
+;Obviously, we can't have an infinite number of keywords in a language.
+;So there are only so many of these that are predefined in Scheme, 
+;besides we don't want to lapse into a diabetic coma with all 
+;that syntactic sugar.  
+
+;OK, so how many layers deep can we legally go?
+;How can you be sure?  Do you know a way to tell whether caaaaaaar is a 
+;legal procedure?  (Not syntactic sugar, but one sweet hint there.)
+
+;So what's the deepest you can go?  Is every possible combination of
+;c a/d...a/d r at that depth legal?
+;How many procedures total is that?
+
+;So, now use your knowledge and the built-it functions in Scheme (and 
+;any you may have made today) to create functions to extract information 
+;from a student record in a database.  
+
+;I have loaded the database with five names:
+;Harry, Hermione, Ron, Neville, and Draco
+
+;Just type those names in the window below, and their info should spill 
+;right out:
+
+;Your CA will ask you for several of the following:
+;NOTE:  These are basically one-line programs, but you have to 
+;write the right one line.
+
+(define (IDnum student-name)   ;this will be a number
+  (caar student-name))
+
+(define (lastname student-name) ;this will be just a name
+  (caar (cdr student-name)))
+
+(define (GPA student-name)     ;this will be a number
+  (caddr (car (cdddr student-name) ))     )
+
+(define (birthdate student-name)  ;this will be a list
+  (car (cddr student-name)))
+  
+(define (address student-name) ;this will be a list of lists
+  (car (cddddr student-name)))
+
+(define (class student-name)    ;This will be a number (year)
+  (caar (cdddr student-name )))
+
+(define (schedule student-name) ;this will be a list.
+  (car (cdr (cddddr student-name))))
+  
+(define (familiar student-name) ;this will be a list.
+  (last student-name))
+
+;(lastname Harry) --> Potter
+;(GPA Neville) -->  3.14
+;(birthday Hermione) --> (19 September 1979)
+;(schedule Hermione) -->  (ENG101 MA172)
+;(class Draco) -->  2018
+;(address Harry) -->  ((4 Privet Drive) (LittleWhinging Surrey 07030))
+;(familiar Ron) --> (rat Scabbers)
+
+;Some of those are atoms, some are lists, one is a list-of-lists.
+  
+;Did I leave anything out? I think I forgot a couple.  Maybe even a 
+;major omission.  Perhaps you can make a few degrees of changes?
+  
+;Sure, that looks like a lot, but once you've done a couple of them a
+;pseudo-pattern emerges, and suddenly you're adeptly walking through
+;a list of lists.....which might be the point of the thing.
+
+
+;Would you do your yoda program differently now that you know some of 
+;these shortcuts? ;Go ahead and re-write it as YODA using the syntactic 
+;sugar of cadr, caddr, etc. to sweeten it.
+
+(define (YODA words);You just have to be careful that you parse it right.
+  (append (list (last words)) (list (car words)) (list  (cadr words))))
+
+;Does it work?  Seem "better" to you?
+
+;Oh, one last thing.  Still not convinced that a list of lists can be 
+;REALLY important?  Take a look at any of the programs you wrote today.
+
+;Do you see what they are?  Every single one?  
+  
+;Yep!  Every Scheme program is a list of lists! 
+;(Technically, nested S-expressions.)
+  
+;And you can use programs as arguments to programs...
+;How long is your yoda progam?
+
+
+;Today's GOLDEN SNITCH problem is particularly delicious, but
+;before you dive (literally?) into it, let me warn you about a 
+;particularly nefarious mistake you might make.
+;You will be tempted to do things like this:
+
+(define (combine thing list); combine a thing and a list
+  (cons (cons thing list) list))
+
+(combine 'name '(thing1 thing2))
+
+;It's a fine program. It works.  But there's an esoteric problem here.  
+;One of the parameters is called "list", but "list" is a keyword
+;in Scheme.  Most languages don't let you do this so cavalierly.
+;This is a form of overload that becomes an override.  In the program
+;"combine" above, we would not be able to use the procedure "list".
+;Change one of the "cons" words to "list".  Looks fine.  But try to run 
+;it.  Scheme has forgotten that "list" is a procedure in that function.
+;You can write a program with (procedure? list) and have it return #f:
+
+(define (confusing? list)
+  (procedure? list))
+
+(confusing? list)
+(confusing? '(1 2 3))
+
+;That's why I'll always use "list-of-things" rather than just "list"
+;as a parameter name.  If you've ever run into this, then you know
+;how maddening it can be to try to debug a perfect program.
+
+;End of public service announcement.  Enjoy today's GOLDEN SNITCH.....
+
+ 
+;GOLDEN SNITCH: Neville Longbottom and the Bertie Bott's Bean
+
+;Neville Longbottom always was a bit clumsy.  He swallowed a toejam-
+;flavored Bertie Bott's Everyflavor Bean, and it went down the wrong way.
+;It is now stuck in his innards, as you can see: 
+
+(define NevilleLongbottom
+  '((((N) (e v))) ((i) (l (l)) ((e) L) (o n (g * b)) (o) (t t o) (m))))
+
+;Happily, the House Elves are ready for this contingency.  
+;Their BottBeanEcticator can find and remove the candy.
+
+;Help them by setting the dials on the BottBeanEcticator and thereby 
+;extending the Scheme language with a new procedure of the form: 
+;c!@#&$...%^r that looks deep inside a list-of-lists precisely where the 
+;wayward confection has lodged itself.
+
+;The dials on the machine can be set to either 'a' or 'd', and you may
+;use as many as you find you need, so each of those special characters 
+;should be either an 'a' or a 'd', as in PART 4, above, but deeper.)
+
+;So we want (c!@#&$...%^r NevilleLongbottom) --> * 
+
+;Can you help the House Elves find and extract it before 
+;Neville goes Longbottom up?!?
+
+
+;And, yes, Bertie Bott's Beans are made of syntactic sugar.
+;Sweet, sweet, syntactic sugar!
+
+;-----------------------------------------------------------------
+;I mentioned earlier that I would explain the origins of car and cdr.  
+
+;Legend has it that the car and cdr refer to the two-part components of 
+;a memory register in a particular old computer architecture:  
+;Content of the Address Register, and 
+;Contents of the Data Register.   
+;memory register:  | address |  data  |
+
+;But maybe the story is slightly different.  Here's a link with some of the backstory.  The discussion centers on old IBM 7xy computers and the LISP language (from which Scheme evolved).  There's dispute over whether it's "content of data register" or "copy of decrement register".
+
+;http://www.iwriteiam.nl/HaCAR_CDR.html
+
+;I'm always amazed at how intricate our folklore is, and how bad our memories are, about things that happened such a short time ago.  I mean, we're only talking about the late 1950's.
+
+;The goofy names we give things end up sticking.  There are zillions of examples in computer science:  Java, Python, Snobol (StriNg Oriented and symBOlic Language), even C.  (The story there is that it followed a language called "B". Ha!  Not making it up.)  
+
+;And I'm supposed to believe historians when they tell me what Napolean had for breakfast.
+
+;If it were up to me, I'd have named them 
+;"head" and "tail".
+
+;Newer editions of Scheme have them alternately named:
+;"first" and "rest". Does Racket have those?  You should check and see...
+
+;In case you want atom?, here it is:
+(define (atom? x) 
+    (and (not (pair? x)) (not (null? x))))
+
+(define Harry 
+  '((123456789 BS) (Potter Harry James) (31 July 1980) (2016 ((CS math) (theater)) 3.85) ((4 Privet Drive) (LittleWhinging Surrey 07030)) (CS135 CS284 CS385) (owl Hedwig)))
+
+(define Hermione 
+  '((246813579 BA) (Granger Hermione) (19 September 1979) (2016 ((drama) (none)) 4.01) ((1908 LakeshoreDr apt1234) (Chicago IL 60609)) (ENG101 MA172)(cat Crookshanks)))
+
+(define Ron 
+  '((975318642 BA) (Weasley Ron) (1 March 1980) (2016 ((ElectricalEngineering) (none)) 1.50) ((555 OtterySt none) (Hollywood CA 90210)) (EE100 EE101 MA134 PHY333 HIS302)(rat Scabbers)))
+
+(define Neville 
+  '((111111111 PhD) (Longbottom Neville) (30 July 1980) (2021 ((MechEng) (Drama)) 3.14) ((111 ElmSt apt1234) (HoHoKus NJ 07423)) (ME111 ME601 ME611)(toad Trevor)))
+
+(define Draco 
+  '((888888888 MS) (Malfoy Draco) (5 June 1980) (2018 ((physics) (none)) 3.86) ((888 EatonAve MalfoyManor) (Frankfort KY 40622)) (Phy108 Phy181 MA188)(ferret Putorius)))
